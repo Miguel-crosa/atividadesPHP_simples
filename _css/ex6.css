@@ -1,0 +1,50 @@
+       * {
+           text-align: center;
+           font-family: monospace;
+       }
+
+       body {
+           background: #e0ba9b;
+       }
+
+       #quadrado {
+           margin: 0 auto;
+           width: 600px;
+           height: 725px;
+           border: 3px solid #3b1922;
+           border-radius: 18px;
+           background: #e7a97e;
+       }
+
+       p {
+           font-size: 16px;
+           margin: 6px;
+           font-weight: bold;
+       }
+
+       input {
+           width: 450px;
+           height: 35px;
+           border: 3px solid #3b1922;
+           border-radius: 8px;
+       }
+
+       input:focus {
+           outline: 0;
+       }
+
+       input[type="submit"] {
+           width: 225px;
+           height: 35px;
+       }
+
+       input[type="submit"]:hover {
+           cursor: pointer;
+       }
+
+       input[type="file"] {
+           width: 250px;
+           height: 20px;
+           background-color: white;
+           margin: 0 0 20px;
+       }
