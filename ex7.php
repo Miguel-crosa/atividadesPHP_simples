@@ -21,7 +21,10 @@
     <h1 style="text-align: center;">Todos os Dados!</h1>
 
     <form method="post">
-        <input type="search" name="nome">
+        <input type="search" name="nome" placeholder="Nome">
+        <input type="search" name="endereco" placeholder="Digite o endereço">
+        <input type="search" name="quantH" placeholder="quant. horas trabalhadas">
+        <input type="search" name="salarioTot" placeholder="Salário > 5000">
         <input type="submit" value="Buscar">
         <br><br>
     </form>
@@ -30,6 +33,9 @@
 
     if ($_SERVER["REQUEST_METHOD"] == ("POST")) {
         $buscar = $_POST["nome"];
+        $endereco = $_POST["endereco"];
+        $quantH = $_POST["quantH"];
+        $salarioTot = $_POST["salarioTot"];
         $arquivo = '../arquivosTxt/dadosTrabalhador.txt';
 
 
@@ -53,13 +59,16 @@
 
             //GERA A TABElA UNICA
 
+            //nome + quantidade de hora + salario + de 5000 (3 condições)//
 
             //LINHAS DE DADOS
             foreach ($dados_linhas as $linha_dados) {
 
-                if ($buscar == $linha_dados[0] || $buscar == null) {
+                $salario = $linha_dados[4] * $linha_dados[5];
 
-                    echo "<table border='4px' cellpadding ='8' cellspacing='0' width=80% style='text-align:center'";
+                if ($buscar == $linha_dados[0] && $endereco == $linha_dados[1] && $quantH == $linha_dados[4] >= 40 && $salarioTot == $salario >= 5000 || $buscar == null) {
+
+                    echo "<table border='4px' cellpadding ='8' cellspacing='0' width=80% style='text-align:center'>";
 
                     //CABEÇALHOS GENÉRICOS
                     echo "<tr>";
@@ -68,7 +77,7 @@
                     }
                     echo "</tr>";
 
-                    $salario = $linha_dados[4] * $linha_dados[5];
+
                     echo "<tr>";
                     for ($i = 0; $i < $max_campos; $i++) {
                         $valor = isset($linha_dados[$i]) ? htmlspecialchars($linha_dados[$i]) : ' ';
