@@ -68,7 +68,7 @@
             echo " Erro no upload" . basename($arquivo["name"]);
         }
 
-        $info = "$nome | $endereco | $cpf | $nasc | $horasTb | $recph | $nomeArquivo (Curriculo)\n";
+        $info = "$nome | $endereco | $cpf | $nasc | $horasTb | $recph |$nomeArquivo|\n";
 
         file_put_contents("../arquivosTxt/dadosTrabalhador.txt", $info, FILE_APPEND);
     }
